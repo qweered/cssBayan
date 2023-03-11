@@ -1,53 +1,64 @@
 body {
     background: #c8e6e8;
 }
+
 .wrapper {
     width: 60%;
     margin: 0 auto;
 }
+
 .heading {
     display: block;
     text-align: start;
 }
+
 input {
     display: none;
 }
+
 .accordion {
     cursor: pointer;
 }
+
 .accordion__item {
     color: white;
     overflow: hidden;
 }
-.accordion__item:hover {
-}
+
 .accordion__title {
     display: flex;
     justify-content: space-between;
     padding: 1em;
     background: #2c3e50;
 }
+
 .accordion__title:hover {
     background: #1d5283;
 }
+
 .accordion__title::after {
     content: "\276F";
     width: 1em;
     height: 1em;
     text-align: center;
-    transition: all 0.35s;
+    transition: all 0.8s;
 }
+
 .accordion__content {
     max-height: 0;
     padding: 0 1em;
     color: #2c3e50;
     background: white;
-    transition: all 0.35s;
+    transition: all 0.8s;
 }
-input:checked + .accordion__title::after, input:hover + .accordion__title::after  {
+
+input:checked + .accordion__title::after,
+input:hover + .accordion__title::after {
     transform: rotate(90deg);
 }
-input:checked ~ .accordion__content, input:hover ~ .accordion__content {
+
+input:checked ~ .accordion__content,
+input:hover ~ .accordion__content {
     max-height: 100vh;
     padding: 1em;
 }
