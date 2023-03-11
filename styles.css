@@ -34,6 +34,7 @@ input {
 }
 
 .accordion__label::after {
+    display: none;
     content: "\276F";
     width: 1em;
     height: 1em;
@@ -41,20 +42,38 @@ input {
     transition: all 0.8s;
 }
 
+.accordion:hover > div .accordion__label::after {
+    display: block;
+}
+
 .accordion__image {
+    display: block;
+    cursor: pointer;
     max-height: 0;
     color: #2c3e50;
     background: white;
     transition: all 0.8s;
 }
 
-input:checked + .accordion__label::after,
-input:hover + .accordion__label::after {
+
+@media (hover: hover) {
+    .accordion__item:hover > .accordion__image {
+        max-inline-size: 100%;
+        max-height: 50vh;
+        block-size: auto;
+        padding: 1em;
+    }
+
+    .accordion__item:hover > .accordion__label::after {
+        transform: rotate(90deg);
+    }
+}
+
+input:checked + .accordion__label::after {
     transform: rotate(90deg);
 }
 
-input:checked ~ label > .accordion__image,
-input:hover ~ label > .accordion__image {
+input:checked ~ .accordion__image {
     max-inline-size: 100%;
     max-height: 100vh;
     block-size: auto;
