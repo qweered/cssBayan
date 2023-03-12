@@ -44,11 +44,7 @@ input {
     padding: 1em;
     background: #2fa4e3;
     border-radius: 0.3em;
-    box-shadow: 0.1em 0.1em 1rem rgba(0,0,0,0.5);
-}
-
-.accordion__label:hover {
-    background: #1c5e9a;
+    box-shadow: 0.1em 0.1em 1rem rgba(0, 0, 0, 0.5);
 }
 
 .accordion__label::after {
@@ -58,10 +54,6 @@ input {
     height: 1em;
     text-align: center;
     transition: all 0.8s;
-}
-
-.accordion:hover > div .accordion__label::after {
-    display: block;
 }
 
 .accordion__image {
@@ -77,15 +69,22 @@ input {
 
 
 @media (hover: hover) {
+    .accordion__label:hover {
+        background: #1c5e9a;
+    }
+
     .accordion__item:hover > label .accordion__image {
         max-height: 40vh;
         block-size: auto;
         padding: 1em;
     }
 
+    .accordion:hover > div .accordion__label::after {
+        display: block;
+    }
+
     .accordion__item:hover > .accordion__label::after {
         transform: rotate(90deg);
-    /*    TODO: change to fontawesome pseudo-element*/
     }
 
     .accordion:not(:hover) > div input:not(:checked) ~ .accordion__label,
@@ -102,4 +101,8 @@ input:checked ~ label > .accordion__image {
     max-height: 40vh;
     block-size: auto;
     padding: 1em;
+}
+
+input:checked + .accordion__label {
+    background: #1c5e9a;
 }
