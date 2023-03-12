@@ -1,5 +1,7 @@
 body {
     background: #c8e6e8;
+    width: 100vw;
+    overflow-x: hidden;
     font-size: 1.2rem;
 }
 
