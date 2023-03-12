@@ -1,9 +1,22 @@
 body {
     background: #c8e6e8;
+    font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 820px) {
+    body {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        font-size: 0.9rem;
+    }
 }
 
 .wrapper {
-    width: 60%;
+    width: calc(max(60%, 17em));
     margin: 0 auto;
 }
 
@@ -19,6 +32,7 @@ input {
 .accordion__item {
     color: white;
     overflow: hidden;
+    margin-bottom: 1.2rem;
 }
 
 .accordion__label {
@@ -26,11 +40,13 @@ input {
     display: flex;
     justify-content: space-between;
     padding: 1em;
-    background: #2c3e50;
+    background: #2fa4e3;
+    border-radius: 0.3em;
+    box-shadow: 0.1em 0.1em 1rem rgba(0,0,0,0.5);
 }
 
 .accordion__label:hover {
-    background: #1d5283;
+    background: #1c5e9a;
 }
 
 .accordion__label::after {
@@ -48,6 +64,7 @@ input {
 
 .accordion__image {
     display: block;
+    max-inline-size: 100%;
     cursor: pointer;
     margin: 0 auto;
     background-color: aliceblue;
@@ -58,30 +75,29 @@ input {
 
 
 @media (hover: hover) {
-    .accordion__item:hover > .accordion__image {
-        max-inline-size: 100%;
-        max-height: 50vh;
+    .accordion__item:hover > label .accordion__image {
+        max-height: 40vh;
         block-size: auto;
         padding: 1em;
     }
 
     .accordion__item:hover > .accordion__label::after {
         transform: rotate(90deg);
+    /*    TODO: change to fontawesome pseudo-element*/
     }
 
-    /*.accordion__item:not(:hover) > ,*/
-    /*input:not(:checked) {*/
-
-    /*}*/
+    .accordion:not(:hover) > div input:not(:checked) ~ .accordion__label,
+    input:not(:checked) {
+        color: #000000;
+    }
 }
 
 input:checked + .accordion__label::after {
     transform: rotate(90deg);
 }
 
-input:checked ~ .accordion__image {
-    max-inline-size: 100%;
-    max-height: 50vh;
+input:checked ~ label > .accordion__image {
+    max-height: 40vh;
     block-size: auto;
     padding: 1em;
 }
